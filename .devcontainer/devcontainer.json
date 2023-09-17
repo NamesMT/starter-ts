@@ -1,0 +1,74 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/alpine
+{
+  "name": "Alpine-NamesMT",
+  "image": "namesmt/images-alpine:node-dev",
+  // "build": {
+  //   "dockerfile": "Dockerfile"
+  // },
+  // Features to add to the dev container. More info: https://containers.dev/features.
+  "features": {
+    "ghcr.io/stuartleeks/dev-container-features/shell-history:0": {
+      "version": "latest"
+    }
+  },
+  // Use 'forwardPorts' to make a list of ports inside the container available locally.
+  // "forwardPorts": [],
+  // Use 'postCreateCommand' to run commands after the container is created.
+  // "postCreateCommand": "uname -a",
+  // Configure tool-specific properties.
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        // "amazonwebservices.aws-toolkit-vscode",
+        "antfu.goto-alias",
+        "antfu.iconify",
+        "antfu.open-in-github-button",
+        "antfu.unocss",
+        "antfu.vite",
+        "antfu.where-am-i",
+        "Bito.Bito",
+        "ChakrounAnas.turbo-console-log",
+        "dbaeumer.vscode-eslint",
+        "eamodio.gitlens",
+        "funkyremi.vscode-google-translate",
+        "george-alisson.html-preview-vscode",
+        "GitHub.vscode-pull-request-github",
+        "Gruntfuggly.todo-tree",
+        "lokalise.i18n-ally",
+        "mpontus.tab-cycle",
+        "ms-vscode.live-server",
+        "naumovs.color-highlight",
+        "oderwat.indent-rainbow",
+        "rangav.vscode-thunder-client",
+        "richie5um2.vscode-sort-json",
+        "RobertOstermann.inline-parameters-extended",
+        "streetsidesoftware.code-spell-checker",
+        "svsool.markdown-memo",
+        "unional.vscode-sort-package-json",
+        "usernamehw.errorlens",
+        "Vue.volar",
+        "Vue.vscode-typescript-vue-plugin",
+        "yzhang.markdown-all-in-one"
+      ]
+    }
+  },
+  // Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+  // "remoteUser": "root"
+  "workspaceMount": "",
+  "workspaceFolder": "${localWorkspaceFolder}",
+  "runArgs": [
+    // disable selinux isolation that breaks bind mounts
+    "--security-opt=label=disable",
+    // mount user home directory for things like git, ssh, and other configs
+    // "--volume=${env:HOME}:${env:HOME}",
+    // isolate the .vscode-server folder so you don't overwrite settings from remote ssh vscode
+    // "--volume=${localWorkspaceFolder}/.cache/vscode-server:${env:HOME}/.vscode-server",
+    // ensure project directory is mounted incase it exists outside the home directory
+    "--volume=${localWorkspaceFolder}:${localWorkspaceFolder}"
+  ],
+  "containerEnv": {
+    // ensure users home directory is the same inside the container as it is outside
+    "HOME": "${env:HOME}"
+  }
+}

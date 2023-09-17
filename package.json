@@ -1,0 +1,77 @@
+{
+  "name": "starter-ts",
+  "type": "module",
+  "version": "0.0.0",
+  "packageManager": "pnpm@8.7.5",
+  "description": "",
+  "author": "NamesMT <dangquoctrung123@gmail.com>",
+  "license": "MIT",
+  "funding": "https://github.com/sponsors/namesmt",
+  "homepage": "https://github.com/namesmt/starter-ts#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/namesmt/starter-ts.git"
+  },
+  "bugs": "https://github.com/namesmt/starter-ts/issues",
+  "keywords": [
+  ],
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "main": "./dist/index.mjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "typesVersions": {
+    "*": {
+      "*": [
+        "./dist/*",
+        "./dist/index.d.ts"
+      ]
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "unbuild",
+    "stub": "unbuild --stub",
+    "lint": "eslint .",
+    "prepublishOnly": "pnpm run build",
+    "dev": "pnpm run watch",
+    "release": "bumpp && pnpm run publish",
+    "start": "cross-env isLocal=true jiti src/index.ts | pino-pretty",
+    "watch": "cross-env isLocal=true nodemon src/index.ts | pino-pretty",
+    "test": "cross-env isLocal=true vitest --test-timeout=0",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "pino": "^8.15.1",
+    "readable-http-codes": "^1.1.1"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^0.42.0",
+    "@types/node": "^20.6.0",
+    "@unocss/eslint-config": "^0.55.7",
+    "bumpp": "9.1.0",
+    "cross-env": "^7.0.3",
+    "eslint": "^8.49.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-config-turbo": "^1.10.13",
+    "jiti": "^1.20.0",
+    "nodemon": "^3.0.1",
+    "pino-pretty": "^10.2.0",
+    "typescript": "^5.2.2",
+    "unbuild": "^2.0.0",
+    "vitest": "^0.34.4"
+  },
+  "pnpm": {
+    "overrides": {
+      "has": "npm:@nolyfill/has@latest"
+    }
+  }
+}

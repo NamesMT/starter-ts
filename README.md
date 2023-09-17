@@ -28,7 +28,7 @@ import { hello } from 'starter-ts'
 
 ## Roadmap
 
-- [ ] Setting up Dev Container
+- [x] Setting up Dev Container
 - [ ] Become the legendary 10000x developer
 
 ## License
