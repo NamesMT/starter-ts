@@ -2,7 +2,7 @@
   "name": "starter-ts",
   "type": "module",
   "version": "0.0.0",
-  "packageManager": "pnpm@8.7.5",
+  "packageManager": "pnpm@8.9.2",
   "description": "",
   "author": "NamesMT <dangquoctrung123@gmail.com>",
   "license": "MIT",
@@ -13,65 +13,60 @@
     "url": "git+https://github.com/namesmt/starter-ts.git"
   },
   "bugs": "https://github.com/namesmt/starter-ts/issues",
-  "keywords": [
-  ],
+  "keywords": [],
   "sideEffects": false,
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.cjs"
+      "types": "./dist/index.d.mts",
+      "import": "./dist/index.mjs"
     }
   },
-  "main": "./dist/index.mjs",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
-  "typesVersions": {
-    "*": {
-      "*": [
-        "./dist/*",
-        "./dist/index.d.ts"
-      ]
-    }
-  },
+  "main": "dist/index.mjs",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.mts",
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "unbuild",
-    "stub": "unbuild --stub",
-    "lint": "eslint .",
     "prepublishOnly": "pnpm run build",
+    "start": "tsx src/index.ts",
+    "watch": "tsx watch src/index.ts",
+    "stub": "unbuild --stub",
     "dev": "pnpm run watch",
-    "release": "bumpp && pnpm run publish",
-    "start": "cross-env isLocal=true jiti src/index.ts | pino-pretty",
-    "watch": "cross-env isLocal=true nodemon src/index.ts | pino-pretty",
-    "test": "cross-env isLocal=true vitest --test-timeout=0",
-    "typecheck": "tsc --noEmit"
+    "lint": "eslint .",
+    "test": "vitest",
+    "test:types": "tsc --noEmit --skipLibCheck",
+    "check": "pnpm lint && pnpm test:types && vitest run --coverage",
+    "build": "unbuild",
+    "release": "pnpm dlx changelogen@latest --release --push --publish"
   },
   "dependencies": {
-    "pino": "^8.15.1",
+    "pino": "^8.16.0",
     "readable-http-codes": "^1.1.1"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^0.42.0",
-    "@types/node": "^20.6.0",
-    "@unocss/eslint-config": "^0.55.7",
-    "bumpp": "9.1.0",
+    "@antfu/eslint-config": "1.0.0-beta.27",
+    "@types/node": "^20.8.7",
+    "@unocss/eslint-config": "^0.56.5",
+    "@vitest/coverage-v8": "^0.34.6",
     "cross-env": "^7.0.3",
-    "eslint": "^8.49.0",
+    "eslint": "^8.52.0",
     "eslint-config-prettier": "^9.0.0",
-    "eslint-config-turbo": "^1.10.13",
-    "jiti": "^1.20.0",
-    "nodemon": "^3.0.1",
-    "pino-pretty": "^10.2.0",
+    "eslint-config-turbo": "^1.10.16",
+    "pino-pretty": "^10.2.3",
+    "tsx": "^3.14.0",
     "typescript": "^5.2.2",
     "unbuild": "^2.0.0",
-    "vitest": "^0.34.4"
+    "vitest": "^0.34.6"
   },
   "pnpm": {
     "overrides": {
-      "has": "npm:@nolyfill/has@latest"
+      "array-includes": "npm:@nolyfill/array-includes@latest",
+      "array.prototype.flat": "npm:@nolyfill/array.prototype.flat@latest",
+      "function-bind": "npm:@nolyfill/function-bind@latest",
+      "has": "npm:@nolyfill/has@latest",
+      "object.assign": "npm:@nolyfill/object.assign@latest",
+      "object.values": "npm:@nolyfill/object.values@latest"
     }
   }
 }

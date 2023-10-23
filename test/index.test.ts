@@ -1,9 +1,11 @@
-/* eslint-disable unused-imports/no-unused-vars */
-import { describe, expect, test } from 'vitest'
-import { hello } from '~/index'
+import { expect, it } from 'vitest'
+import { shouldBe200 } from '~/index.js'
+import { logger } from '~/logger'
 
-describe('Init', () => {
-  test('Hello shorten string', () => {
-    expect(hello).toBe('hi')
-  })
+it('shoudBe200', () => {
+  expect(shouldBe200).toBe(200)
+})
+
+it('logger', () => {
+  expect(logger).toHaveProperty('info')
 })

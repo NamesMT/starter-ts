@@ -20,7 +20,7 @@
   "customizations": {
     "vscode": {
       "extensions": [
-        // "amazonwebservices.aws-toolkit-vscode",
+        "AMiner.codegeex",
         "antfu.goto-alias",
         "antfu.iconify",
         "antfu.open-in-github-button",
@@ -29,14 +29,15 @@
         "antfu.where-am-i",
         "Bito.Bito",
         "ChakrounAnas.turbo-console-log",
+        "cweijan.vscode-mysql-client2",
         "dbaeumer.vscode-eslint",
         "eamodio.gitlens",
         "funkyremi.vscode-google-translate",
         "george-alisson.html-preview-vscode",
         "GitHub.vscode-pull-request-github",
         "Gruntfuggly.todo-tree",
+        "jock.svg",
         "lokalise.i18n-ally",
-        "mpontus.tab-cycle",
         "ms-vscode.live-server",
         "naumovs.color-highlight",
         "oderwat.indent-rainbow",
