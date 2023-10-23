@@ -51,8 +51,6 @@
     "@vitest/coverage-v8": "^0.34.6",
     "cross-env": "^7.0.3",
     "eslint": "^8.52.0",
-    "eslint-config-prettier": "^9.0.0",
-    "eslint-config-turbo": "^1.10.16",
     "pino-pretty": "^10.2.3",
     "tsx": "^3.14.0",
     "typescript": "^5.2.2",
