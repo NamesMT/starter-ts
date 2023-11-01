@@ -15,7 +15,7 @@
   // Use 'forwardPorts' to make a list of ports inside the container available locally.
   // "forwardPorts": [],
   // Use 'postCreateCommand' to run commands after the container is created.
-  // "postCreateCommand": "uname -a",
+  "postCreateCommand": "sh .devcontainer/postCreate.sh",
   // Configure tool-specific properties.
   "customizations": {
     "vscode": {
@@ -59,14 +59,20 @@
   "workspaceMount": "",
   "workspaceFolder": "${localWorkspaceFolder}",
   "runArgs": [
+    // run container as current user
+    "--userns=keep-id",
     // disable selinux isolation that breaks bind mounts
     "--security-opt=label=disable",
+    // ensure project directory is mounted incase it exists outside the home directory
+    "--volume=${localWorkspaceFolder}:${localWorkspaceFolder}",
+    // mount pnpm store for shared caching/linking
+    "--volume=${env:PNPM_HOME}/store:${env:PNPM_HOME}/store"
+    // // Enable both in this block if you want to mount home dir
     // mount user home directory for things like git, ssh, and other configs
     // "--volume=${env:HOME}:${env:HOME}",
     // isolate the .vscode-server folder so you don't overwrite settings from remote ssh vscode
-    // "--volume=${localWorkspaceFolder}/.cache/vscode-server:${env:HOME}/.vscode-server",
-    // ensure project directory is mounted incase it exists outside the home directory
-    "--volume=${localWorkspaceFolder}:${localWorkspaceFolder}"
+    // "--volume=${localWorkspaceFolder}/.cache/vscode-server:${env:HOME}/.vscode-server"
+    // //
   ],
   "containerEnv": {
     // ensure users home directory is the same inside the container as it is outside
