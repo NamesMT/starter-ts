@@ -22,7 +22,7 @@ dependencies:
 
 devDependencies:
   '@antfu/eslint-config':
-    specifier: 1.1.0
+    specifier: ^1.1.0
     version: 1.1.0(eslint@8.52.0)(typescript@5.2.2)(vitest@0.34.6)
   '@types/node':
     specifier: ^20.8.10
