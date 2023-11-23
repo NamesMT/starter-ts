@@ -46,15 +46,13 @@
     "prepublishOnly": "pnpm run build"
   },
   "dependencies": {
-    "pino": "^8.16.2",
-    "readable-http-codes": "^1.1.1"
+    "pino": "^8.16.2"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^2.1.0",
     "@types/node": "^20.9.4",
     "@unocss/eslint-config": "^0.57.7",
     "@vitest/coverage-v8": "^0.34.6",
-    "cross-env": "^7.0.3",
     "eslint": "^8.54.0",
     "lint-staged": "^15.1.0",
     "pino-pretty": "^10.2.3",
@@ -66,12 +64,7 @@
   },
   "pnpm": {
     "overrides": {
-      "array-includes": "npm:@nolyfill/array-includes@latest",
-      "array.prototype.flat": "npm:@nolyfill/array.prototype.flat@latest",
-      "function-bind": "npm:@nolyfill/function-bind@latest",
-      "has": "npm:@nolyfill/has@latest",
-      "object.assign": "npm:@nolyfill/object.assign@latest",
-      "object.values": "npm:@nolyfill/object.values@latest"
+      "hasown": "npm:@nolyfill/hasown@latest"
     }
   },
   "simple-git-hooks": {

@@ -1,6 +1,5 @@
-import { OK } from 'readable-http-codes'
-import { logger } from '~/logger'
+import { logger } from './logger'
 
-export const shouldBe200 = OK
+export const shouldBe200 = 200
 
 logger.info({ shouldBe200, message: 'hello there' })
