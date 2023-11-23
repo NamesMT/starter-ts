@@ -2,22 +2,18 @@
 
 **starter-ts** is my personal starter/boilerplate for typescript projects.
 
-# Notes (Delete this section when you use the template)
-## I'm heavily inspired by [antfu](https://github.com/antfu):
+### Notes (Delete this section when you use the template)
+#### I'm heavily inspired by [antfu](https://github.com/antfu):
 - [antfu/ni](https://github.com/antfu/ni)
 - [antfu/taze](https://github.com/antfu/taze)
 - [antfu/vscode-settings](https://github.com/antfu/vscode-settings)
 - [antfu/eslint-config](https://github.com/antfu/eslint-config)
   - Style error silencing is commented out
+### END NOTE
 
 ## Features
 
 ## Usage
-```
-
-```
-
-
 ### Install package:
 
 ```sh
