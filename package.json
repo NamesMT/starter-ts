@@ -17,14 +17,14 @@
   "sideEffects": false,
   "exports": {
     ".": {
-      "types": "./dist/index.d.mts",
+      "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs"
     }
   },
   "source": "./src/index.ts",
   "main": "./dist/index.mjs",
   "module": "./dist/index.mjs",
-  "types": "./dist/index.d.mts",
+  "types": "./dist/index.d.ts",
   "files": [
     "dist"
   ],
@@ -32,6 +32,8 @@
     "node": ">=18.0.0"
   },
   "scripts": {
+    "reproduce": "pnpm run build && cd /workspace/dist && node index.mjs",
+
     "start": "tsx src/index.ts",
     "watch": "tsx watch src/index.ts",
     "stub": "unbuild --stub",
