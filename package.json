@@ -32,7 +32,7 @@
     "node": ">=18.0.0"
   },
   "scripts": {
-    "reproduce": "pnpm run build && cd /workspace/dist && node index.mjs",
+    "reproduce": "pnpm i && pnpm run build && cd /workspace/dist && node index.mjs",
 
     "start": "tsx src/index.ts",
     "watch": "tsx watch src/index.ts",
