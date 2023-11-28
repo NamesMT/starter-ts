@@ -66,7 +66,7 @@
     // ensure project directory is mounted incase it exists outside the home directory
     "--volume=${localWorkspaceFolder}:${localWorkspaceFolder}",
     // mount pnpm store for shared caching/linking
-    "--volume=${env:PNPM_HOME}/store:${env:PNPM_HOME}/store",
+    // "--volume=${env:PNPM_HOME}/store:${env:PNPM_HOME}/store",
     // // Enable both in this block if you want to mount home dir
     // mount user home directory for things like git, ssh, and other configs
     // "--volume=${env:HOME}:${env:HOME}",
