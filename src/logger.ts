@@ -1,16 +1,8 @@
-import { isColorSupported, isDevelopment } from 'std-env'
-import pino from 'pino'
+import { isDevelopment } from 'std-env'
+import { LogLevels, createConsola } from 'consola'
 
-export const logger = pino(
+export const logger = createConsola(
   {
-    level: isDevelopment ? 'debug' : 'info',
-    base: undefined,
-    transport: isDevelopment
-      ? { target: 'pino-pretty', options: { colorize: isColorSupported } }
-      : undefined,
-    // redact: {
-    //   paths: [],
-    //   remove: true,
-    // },
+    level: isDevelopment ? LogLevels.debug : undefined,
   },
 )

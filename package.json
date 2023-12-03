@@ -51,7 +51,7 @@
     "prepublishOnly": "pnpm run build"
   },
   "dependencies": {
-    "pino": "^8.16.2",
+    "consola": "^3.2.3",
     "std-env": "^3.6.0"
   },
   "devDependencies": {
@@ -61,7 +61,6 @@
     "@vitest/coverage-v8": "^0.34.6",
     "eslint": "^8.55.0",
     "lint-staged": "^15.1.0",
-    "pino-pretty": "^10.2.3",
     "simple-git-hooks": "^2.9.0",
     "tsx": "^4.6.2",
     "typescript": "^5.3.2",
