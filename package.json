@@ -51,7 +51,8 @@
     "prepublishOnly": "pnpm run build"
   },
   "dependencies": {
-    "pino": "^8.16.2"
+    "pino": "^8.16.2",
+    "std-env": "^3.6.0"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^2.1.0",
