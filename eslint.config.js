@@ -8,8 +8,9 @@ export default antfu(
     ],
   },
   {
+    files: ['*.md'],
     rules: {
-      // overrides
+      'style/no-trailing-spaces': 'off',
     },
   },
 )
