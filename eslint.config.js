@@ -1,8 +1,8 @@
-import unocss from '@unocss/eslint-config/flat'
 import antfu from '@antfu/eslint-config'
 
 export default antfu(
   {
+    unocss: true,
     ignores: [
       // eslint ignore globs here
     ],
@@ -12,5 +12,4 @@ export default antfu(
       // overrides
     },
   },
-  unocss,
 )
