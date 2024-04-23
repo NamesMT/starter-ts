@@ -1,4 +1,10 @@
-# starter-ts [![NPM version](https://img.shields.io/npm/v/starter-ts?color=a1b858&label=)](https://www.npmjs.com/package/starter-ts)
+# starter-ts ![TypeScript heart icon](https://img.shields.io/badge/♡-%23007ACC.svg?logo=typescript&logoColor=white)
+
+[![npm version][npm-version-src]][npm-version-href]
+[![npm downloads][npm-downloads-src]][npm-downloads-href]
+[![Codecov][codecov-src]][codecov-href]
+[![Bundlejs][bundlejs-src]][bundlejs-href]
+[![jsDocs.io][jsDocs-src]][jsDocs-href]
 
 **starter-ts** is my starter/boilerplate for typescript projects.  
 This template assumes you are using Linux, or the included Dev Container.
@@ -45,6 +51,20 @@ import { hello } from 'starter-ts'
 - [x] Setting up Dev Container
 - [ ] Become the legendary 10000x developer
 
-## License
-
+## License [![License][license-src]][license-href]
 [MIT](./LICENSE) License © 2023 [NamesMT](https://github.com/NamesMT)
+
+<!-- Badges -->
+
+[npm-version-src]: https://img.shields.io/npm/v/starter-ts?labelColor=18181B&color=F0DB4F
+[npm-version-href]: https://npmjs.com/package/starter-ts
+[npm-downloads-src]: https://img.shields.io/npm/dm/starter-ts?labelColor=18181B&color=F0DB4F
+[npm-downloads-href]: https://npmjs.com/package/starter-ts
+[codecov-src]: https://img.shields.io/codecov/c/gh/namesmt/starter-ts/main?labelColor=18181B&color=F0DB4F
+[codecov-href]: https://codecov.io/gh/namesmt/starter-ts
+[license-src]: https://img.shields.io/github/license/namesmt/starter-ts.svg?labelColor=18181B&color=F0DB4F
+[license-href]: https://github.com/namesmt/starter-ts/blob/main/LICENSE
+[bundlejs-src]: https://img.shields.io/bundlejs/size/starter-ts?labelColor=18181B&color=F0DB4F
+[bundlejs-href]: https://bundlejs.com/?q=starter-ts
+[jsDocs-src]: https://img.shields.io/badge/Check_out-jsDocs.io---?labelColor=18181B&color=F0DB4F
+[jsDocs-href]: https://www.jsdocs.io/package/starter-ts
