@@ -17,6 +17,7 @@ export default defineBuildConfig({
   clean: true,
   rollup: {
     esbuild: {
+      target: 'esnext',
       minify: true,
     },
   },
