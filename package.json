@@ -52,20 +52,21 @@
     "std-env": "^3.7.0"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^2.21.1",
-    "@types/node": "^20.14.7",
+    "@antfu/eslint-config": "^2.21.2",
+    "@types/node": "^20.14.9",
     "@vitest/coverage-v8": "^1.6.0",
-    "eslint": "^9.5.0",
+    "eslint": "^9.6.0",
     "lint-staged": "^15.2.7",
     "simple-git-hooks": "^2.11.1",
-    "tsx": "^4.15.7",
+    "tsx": "^4.16.0",
     "typescript": "^5.5.2",
     "unbuild": "^2.0.0",
     "vitest": "^1.6.0"
   },
   "pnpm": {
     "overrides": {
-      "hasown": "npm:@nolyfill/hasown@latest"
+      "hasown": "npm:@nolyfill/hasown@^1",
+      "is-core-module": "npm:@nolyfill/is-core-module@^1"
     }
   },
   "simple-git-hooks": {
