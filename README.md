@@ -12,10 +12,7 @@ This template assumes you are using Linux, or the included Dev Container.
 ### Notes (remove this section when you use the template)
 #### * Do a global replace for `starter-ts` and `NamesMT`
 
-#### * I'm heavily inspired by [antfu](https://github.com/antfu) and [UnJS](https://github.com/unjs), some notable things:
-- [antfu/ni](https://github.com/antfu/ni)
-- [antfu/taze](https://github.com/antfu/taze)
-- [antfu/vscode-settings](https://github.com/antfu/vscode-settings)
+#### * Notable behavior:
 - [antfu/eslint-config](https://github.com/antfu/eslint-config)
   - Style error silencing is commented out
 
