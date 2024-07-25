@@ -21,17 +21,9 @@
   "customizations": {
     "vscode": {
       "extensions": [
-        "antfu.where-am-i",
         "dbaeumer.vscode-eslint",
-        "eamodio.gitlens",
-        "george-alisson.html-preview-vscode",
-        "Gruntfuggly.todo-tree",
-        "naumovs.color-highlight",
-        "oderwat.indent-rainbow",
-        "rangav.vscode-thunder-client",
         "streetsidesoftware.code-spell-checker",
         "usernamehw.errorlens",
-        "Vue.volar",
         "yoavbls.pretty-ts-errors",
       ]
     }
