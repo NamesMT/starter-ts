@@ -44,12 +44,10 @@ import { hello } from 'starter-ts'
 ```
 
 ## Roadmap
-
-- [x] Setting up Dev Container
 - [ ] Become the legendary 10000x developer
 
 ## License [![License][license-src]][license-href]
-[MIT](./LICENSE) License © 2023 [NamesMT](https://github.com/NamesMT)
+[MIT](./LICENSE) License © 2024 [NamesMT](https://github.com/NamesMT)
 
 <!-- Badges -->
 
