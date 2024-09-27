@@ -48,7 +48,7 @@
     "prepublishOnly": "pnpm run build"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^2.27.1",
+    "@antfu/eslint-config": "^3.7.3",
     "@namesmt/utils": "^0.5.3",
     "@types/node": "^20.16.1",
     "@vitest/coverage-v8": "^2.0.5",
