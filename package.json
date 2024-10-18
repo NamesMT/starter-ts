@@ -2,7 +2,7 @@
   "name": "starter-ts",
   "type": "module",
   "version": "0.1.0",
-  "packageManager": "pnpm@9.12.1",
+  "packageManager": "pnpm@9.12.2",
   "description": "",
   "author": "NamesMT <dangquoctrung123@gmail.com>",
   "license": "MIT",
@@ -29,7 +29,7 @@
     "dist"
   ],
   "engines": {
-    "node": ">=20.13.1"
+    "node": ">=20.18.0"
   },
   "scripts": {
     "start": "NODE_ENV=dev tsx src/index.ts",
@@ -48,12 +48,12 @@
     "prepublishOnly": "pnpm run build"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^3.7.3",
+    "@antfu/eslint-config": "^3.8.0",
     "@namesmt/utils": "^0.5.6",
-    "@types/node": "^20.16.11",
+    "@types/node": "^20.16.12",
     "@vitest/coverage-v8": "^2.1.3",
     "consola": "^3.2.3",
-    "eslint": "^9.12.0",
+    "eslint": "^9.13.0",
     "lint-staged": "^15.2.10",
     "simple-git-hooks": "^2.11.1",
     "std-env": "^3.7.0",
@@ -64,7 +64,7 @@
   },
   "pnpm": {
     "overrides": {
-      "is-core-module": "npm:@nolyfill/is-core-module@^1"
+      "is-core-module": "npm:@nolyfill/is-core-module@^1.0.39"
     }
   },
   "simple-git-hooks": {
