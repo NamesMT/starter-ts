@@ -29,7 +29,7 @@
     "dist"
   ],
   "engines": {
-    "node": ">=20.13.1"
+    "node": ">=20.18.1"
   },
   "scripts": {
     "start": "NODE_ENV=dev tsx src/index.ts",
@@ -64,7 +64,7 @@
   },
   "pnpm": {
     "overrides": {
-      "is-core-module": "npm:@nolyfill/is-core-module@^1"
+      "is-core-module": "npm:@nolyfill/is-core-module@^1.0.39"
     }
   },
   "simple-git-hooks": {
