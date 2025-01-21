@@ -29,7 +29,7 @@
     "dist"
   ],
   "engines": {
-    "node": ">=20.13.1"
+    "node": ">=22.13.1"
   },
   "scripts": {
     "start": "NODE_ENV=dev tsx src/index.ts",
