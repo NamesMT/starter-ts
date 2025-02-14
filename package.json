@@ -2,7 +2,7 @@
   "name": "starter-ts",
   "type": "module",
   "version": "0.1.0",
-  "packageManager": "pnpm@9.15.4",
+  "packageManager": "pnpm@10.4.0",
   "description": "",
   "author": "NamesMT <dangquoctrung123@gmail.com>",
   "license": "MIT",
