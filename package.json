@@ -2,7 +2,7 @@
   "name": "starter-ts",
   "type": "module",
   "version": "0.1.0",
-  "packageManager": "pnpm@10.4.1",
+  "packageManager": "pnpm@10.5.1",
   "description": "",
   "author": "NamesMT <dangquoctrung123@gmail.com>",
   "license": "MIT",
@@ -51,7 +51,7 @@
     "@antfu/eslint-config": "^4.3.0",
     "@namesmt/utils": "^0.5.9",
     "@types/node": "^22.13.5",
-    "@vitest/coverage-v8": "^3.0.6",
+    "@vitest/coverage-v8": "^3.0.7",
     "consola": "^3.4.0",
     "eslint": "^9.21.0",
     "lint-staged": "^15.4.3",
@@ -59,12 +59,12 @@
     "std-env": "^3.8.0",
     "tsx": "^4.19.3",
     "typescript": "^5.7.3",
-    "unbuild": "^3.3.1",
-    "vitest": "^3.0.6"
+    "unbuild": "^3.4.0",
+    "vitest": "^3.0.7"
   },
   "pnpm": {
     "overrides": {
-      "is-core-module": "npm:@nolyfill/is-core-module@^1"
+      "is-core-module": "npm:@nolyfill/is-core-module@^1.0.39"
     },
     "onlyBuiltDependencies": [
       "esbuild",
