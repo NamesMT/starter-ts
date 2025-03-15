@@ -35,6 +35,16 @@
     "json",
     "jsonc",
     "yaml",
-    "toml"
+    "toml",
+    "xml",
+    "gql",
+    "graphql",
+    "astro",
+    "svelte",
+    "css",
+    "less",
+    "scss",
+    "pcss",
+    "postcss"
   ]
 }
