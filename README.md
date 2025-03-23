@@ -47,7 +47,6 @@ import { hello } from 'starter-ts'
 - [ ] Become the legendary 10000x developer
 
 ## License [![License][license-src]][license-href]
-[MIT](./LICENSE) License © 2024 [NamesMT](https://github.com/NamesMT)
 
 <!-- Badges -->
 
