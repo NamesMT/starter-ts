@@ -1,6 +1,8 @@
 packages:
   - playground
+
 onlyBuiltDependencies:
   - esbuild
   - simple-git-hooks
-ignoreWorkspaceRootCheck: 'true'
+
+ignoreWorkspaceRootCheck: true
