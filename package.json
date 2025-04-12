@@ -32,10 +32,10 @@
     "node": ">=20.13.1"
   },
   "scripts": {
-    "start": "NODE_ENV=dev tsx src/index.ts",
-    "watch": "NODE_ENV=dev tsx watch src/index.ts",
+    "start": "tsx",
+    "watch": "tsx watch",
     "stub": "unbuild --stub",
-    "dev": "pnpm run watch",
+    "dev": "NODE_ENV=dev pnpm run watch src/index.ts",
     "play": "pnpm run stub && pnpm run --filter playground dev",
     "play:useBuild": "pnpm run build && pnpm run --filter playground dev",
     "lint": "eslint .",
