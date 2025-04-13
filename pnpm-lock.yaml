@@ -10,6 +10,13 @@ overrides:
 importers:
 
   .:
+    dependencies:
+      consola:
+        specifier: ^3.4.2
+        version: 3.4.2
+      std-env:
+        specifier: ^3.9.0
+        version: 3.9.0
     devDependencies:
       '@antfu/eslint-config':
         specifier: ^4.12.0

@@ -43,11 +43,13 @@
     "test:types": "tsc --noEmit",
     "check": "pnpm lint && pnpm test:types && vitest run --coverage",
     "build": "unbuild",
-    "std-env": "^3.9.0",
-    "consola": "^3.4.2",
     "release": "pnpm dlx changelogen@latest --release --push --publish",
     "prepare": "simple-git-hooks",
     "prepublishOnly": "pnpm run build"
+  },
+  "dependencies": {
+    "consola": "^3.4.2",
+    "std-env": "^3.9.0"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^4.12.0",
