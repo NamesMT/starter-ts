@@ -14,14 +14,6 @@
 [![Bundlejs][bundlejs-src]][bundlejs-href]
 [![jsDocs.io][jsDocs-src]][jsDocs-href]
 
-# starter-ts ![TypeScript heart icon](https://img.shields.io/badge/♡-%23007ACC.svg?logo=typescript&logoColor=white)
-
-[![npm version][npm-version-src]][npm-version-href]
-[![npm downloads][npm-downloads-src]][npm-downloads-href]
-[![Codecov][codecov-src]][codecov-href]
-[![Bundlejs][bundlejs-src]][bundlejs-href]
-[![jsDocs.io][jsDocs-src]][jsDocs-href]
-
 ## Overview
 
 **starter-ts** is my starter/boilerplate for typescript projects.  
