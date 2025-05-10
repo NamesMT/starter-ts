@@ -1,6 +1,6 @@
 import { expect, it } from 'vitest'
-import { logger } from '~/logger'
+import { shouldBe200 } from '~/index'
 
-it('logger', () => {
-  expect(logger).toHaveProperty('info')
+it('shouldBe200', () => {
+  expect(shouldBe200).toBe(200)
 })
