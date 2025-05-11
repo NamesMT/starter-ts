@@ -13,7 +13,7 @@
 [![npm downloads][npm-downloads-src]][npm-downloads-href]
 [![Codecov][codecov-src]][codecov-href]
 [![Bundlejs][bundlejs-src]][bundlejs-href]
-[![jsDocs.io][jsDocs-src]][jsDocs-href]
+[![TypeDoc][TypeDoc-src]][TypeDoc-href]
 
 * [starter-ts ](#starter-ts-)
   * [Overview](#overview)
@@ -94,3 +94,5 @@ import { hello } from 'starter-ts'
 [bundlejs-href]: https://bundlejs.com/?q=starter-ts
 [jsDocs-src]: https://img.shields.io/badge/Check_out-jsDocs.io---?labelColor=18181B&color=F0DB4F
 [jsDocs-href]: https://www.jsdocs.io/package/starter-ts
+[TypeDoc-src]: https://img.shields.io/badge/Check_out-TypeDoc---?labelColor=18181B&color=F0DB4F
+[TypeDoc-href]: https://namesmt.github.io/starter-ts/
