@@ -15,16 +15,17 @@
   "bugs": "https://github.com/namesmt/starter-ts/issues",
   "keywords": [],
   "sideEffects": false,
+  "imports": {
+    "#src/*": "./src/*"
+  },
   "exports": {
     ".": {
       "types": "./dist/index.d.mts",
       "import": "./dist/index.mjs"
     }
   },
-  "source": "./src/index.ts",
   "main": "./dist/index.mjs",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.mts",
+  "source": "./src/index.ts",
   "files": [
     "dist"
   ],
@@ -32,17 +33,14 @@
     "node": ">=22.14.0"
   },
   "scripts": {
-    "start": "tsx",
-    "watch": "tsx watch",
-    "stub": "unbuild --stub",
-    "dev": "NODE_ENV=dev pnpm run watch src/index.ts",
-    "play": "pnpm run stub && pnpm run --filter playground dev",
-    "play:useBuild": "pnpm run build && pnpm run --filter playground dev",
     "lint": "eslint .",
     "test": "vitest",
     "test:types": "tsc --noEmit",
-    "check": "pnpm lint && pnpm test:types && vitest run --coverage",
-    "build": "unbuild",
+    "quickcheck": "pnpm run lint && pnpm run test:types",
+    "check": "pnpm run lint && pnpm run test:types && vitest run --coverage",
+    "stub": "obuild --stub",
+    "build": "obuild",
+    "prerelease": "pnpm run check",
     "release": "pnpm dlx changelogen@latest --release --push --publish",
     "prepare": "simple-git-hooks",
     "prepublishOnly": "pnpm run build"
@@ -58,10 +56,10 @@
     "@vitest/coverage-v8": "^3.1.4",
     "eslint": "^9.27.0",
     "lint-staged": "^16.0.0",
+    "obuild": "^0.1.1",
     "simple-git-hooks": "^2.13.0",
     "tsx": "^4.19.4",
     "typescript": "^5.8.3",
-    "unbuild": "^3.5.0",
     "vitest": "^3.1.4"
   },
   "pnpm": {
