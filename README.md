@@ -16,39 +16,39 @@
 [![TypeDoc][TypeDoc-src]][TypeDoc-href]
 
 * [starter-ts ](#starter-ts-)
+  * [Notes (remove this section when you use the template)](#notes-remove-this-section-when-you-use-the-template)
+    * [\* Do a global replace for `starter-ts` and `NamesMT`](#-do-a-global-replace-for-starter-ts-and-namesmt)
+    * [\* Notable behaviors:](#-notable-behaviors)
   * [Overview](#overview)
-    * [Notes (remove this section when you use the template)](#notes-remove-this-section-when-you-use-the-template)
-      * [\* Do a global replace for `starter-ts` and `NamesMT`](#-do-a-global-replace-for-starter-ts-and-namesmt)
-      * [\* Notable behaviors:](#-notable-behaviors)
-      * [\* Script: `play` vs `play:useBuild` for playground testing?](#-script-play-vs-playusebuild-for-playground-testing)
   * [Features](#features)
   * [Usage](#usage)
     * [Install package:](#install-package)
-    * [Import:](#import)
+    * [Import and use:](#import-and-use)
   * [Roadmap](#roadmap)
   * [License](#license)
+
+## Notes (remove this section when you use the template)
+
+### * Do a global replace for `starter-ts` and `NamesMT`
+
+### * Notable behaviors:
+
+- [antfu/eslint-config](https://github.com/antfu/eslint-config)
+  - Style error silencing is commented out
 
 ## Overview
 
 **starter-ts** is my starter/boilerplate for typescript projects.
 This template assumes you are using Linux, or the included Dev Container.
 
-### Notes (remove this section when you use the template)
-
-#### * Do a global replace for `starter-ts` and `NamesMT`
-
-#### * Notable behaviors:
-
-- [antfu/eslint-config](https://github.com/antfu/eslint-config)
-  - Style error silencing is commented out
-
-#### * Script: `play` vs `play:useBuild` for playground testing?
-
-- `play` script uses `unbuild`'s [passive watcher (stub mode)](https://github.com/unjs/unbuild#-passive-watcher), which allows you to execute new code **live** without rebuilding the project. The cons is TS declarations are not available.
-- `play:useBuild` builds a static version of the package, useful for testing the actual look/behavior when shipping.
-
 ## Features
-- [x] TypeScript ready!
++ 👌 TypeScript
++ 🧐 ESLint + stylistic formatting rules ([antfu](https://github.com/antfu/eslint-config))
++ 💯 Vitest
++ 📦 [obuild](https://github.com/unjs/obuild)
++ 📚 A few more goodies like:
+  + [changelogen](https://github.com/unjs/changelogen) release script
+  + [lint-staged](https://github.com/lint-staged/lint-staged) pre-commit hook
 
 ## Usage
 
@@ -65,11 +65,13 @@ bun add starter-ts
 pnpm install starter-ts
 ```
 
-### Import:
+### Import and use:
 
 ```ts
 // ESM
 import { hello } from 'starter-ts'
+
+hello('world')
 ```
 
 ## Roadmap
