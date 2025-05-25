@@ -5,25 +5,29 @@ node_modules
 .pnpm-store
 
 # testing
-coverage
+coverage/
+lib-cov/
 
-# builds
-dist
-build
-out/
+# dev/builds/outputs
+.output/
+.out/
+.data/
+.nuxt/
 .next/
+.nitro/
+.cache/
+dist/
 
 # misc
 .DS_Store
+.fleet
 .idea
-*.pem
 temp
+tmp
 logs
-lib-cov
-coverage
-.cache
-.idea
+tsconfig.tsbuildinfo
 *.log
+*.pem
 
 # debug
 npm-debug.log*
@@ -32,10 +36,17 @@ yarn-error.log*
 .pnpm-debug.log*
 
 # local env files
-.env.*local
+.env.*.ignored
 
 # turbo
 .turbo
 
-# local netlify folder
+# cloud services
+.vercel
 .netlify
+
+# sst
+.sst
+
+# pnpm have a bug with tsx that creates the `tsx-0` folder everywhere
+tsx-0
