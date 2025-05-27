@@ -22,8 +22,8 @@
   * [Overview](#overview)
   * [Features](#features)
   * [Usage](#usage)
-    * [Install package:](#install-package)
-    * [Import and use:](#import-and-use)
+    * [Install package](#install-package)
+    * [Import and use](#import-and-use)
   * [Roadmap](#roadmap)
   * [License](#license)
 
@@ -42,6 +42,7 @@
 This template assumes you are using Linux, or the included Dev Container.
 
 ## Features
+
 + 👌 TypeScript
 + 🧐 ESLint + stylistic formatting rules ([antfu](https://github.com/antfu/eslint-config))
 + 💯 Vitest
@@ -52,7 +53,7 @@ This template assumes you are using Linux, or the included Dev Container.
 
 ## Usage
 
-### Install package:
+### Install package
 
 ```sh
 # npm
@@ -65,7 +66,7 @@ bun add starter-ts
 pnpm install starter-ts
 ```
 
-### Import and use:
+### Import and use
 
 ```ts
 // ESM
