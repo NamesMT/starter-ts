@@ -62,7 +62,7 @@ npm install starter-ts
 # bun
 bun add starter-ts
 
-# pnpm (recommended)
+# pnpm
 pnpm install starter-ts
 ```
 
