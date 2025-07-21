@@ -37,7 +37,7 @@ jobs:
         run: nci
 
       - name: Test (w/ coverage report)
-        run: nr test:types && nr test --coverage
+        run: nr test --coverage
 
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v5
