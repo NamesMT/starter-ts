@@ -1,4 +1,3 @@
-import type { BuildConfig } from 'obuild'
 import { defineBuildConfig } from 'obuild/config'
 
 export default defineBuildConfig({
@@ -8,4 +7,4 @@ export default defineBuildConfig({
       input: 'src/index.ts',
     },
   ],
-}) as BuildConfig
+}) as ReturnType<typeof defineBuildConfig>

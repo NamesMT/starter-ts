@@ -1,4 +1,3 @@
-import type { ViteUserConfig } from 'vitest/config'
 import { configDefaults, defineConfig } from 'vitest/config'
 
 export default defineConfig({
@@ -10,4 +9,4 @@ export default defineConfig({
       ],
     },
   },
-}) as ViteUserConfig
+}) as ReturnType<typeof defineConfig>
