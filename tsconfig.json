@@ -3,6 +3,7 @@
   "compilerOptions": {
     "target": "ESNext",
     "lib": ["ESNext"],
+    "moduleDetection": "force",
     "baseUrl": ".",
     "module": "ESNext",
     "moduleResolution": "Bundler",
@@ -10,12 +11,15 @@
       "vitest"
     ],
     "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "noUncheckedSideEffectImports": true,
     "declaration": true,
     "inlineSources": false,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "isolatedDeclarations": true,
     "isolatedModules": true,
+    "verbatimModuleSyntax": true,
     "preserveWatchOutput": true,
     "skipLibCheck": true
   },
