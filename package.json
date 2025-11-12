@@ -2,7 +2,7 @@
   "name": "starter-ts",
   "type": "module",
   "version": "0.1.0",
-  "packageManager": "pnpm@10.20.0",
+  "packageManager": "pnpm@10.22.0",
   "author": "NamesMT <dangquoctrung123@gmail.com>",
   "license": "MIT",
   "funding": "https://github.com/sponsors/namesmt",
@@ -48,17 +48,17 @@
     "std-env": "^3.10.0"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^6.1.0",
+    "@antfu/eslint-config": "^6.2.0",
     "@namesmt/utils": "^0.5.18",
-    "@types/node": "^24.9.2",
-    "@vitest/coverage-v8": "^4.0.5",
-    "eslint": "^9.38.0",
+    "@types/node": "^24.10.1",
+    "@vitest/coverage-v8": "^4.0.8",
+    "eslint": "^9.39.1",
     "lint-staged": "^16.2.6",
-    "obuild": "^0.3.0",
+    "obuild": "^0.4.1",
     "simple-git-hooks": "^2.13.1",
     "tsx": "^4.20.6",
     "typescript": "^5.9.3",
-    "vitest": "^4.0.5"
+    "vitest": "^4.0.8"
   },
   "pnpm": {
     "overrides": {
