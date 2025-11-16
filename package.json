@@ -49,9 +49,11 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "^6.2.0",
+    "@cloudflare/workers-types": "^4.20251115.0",
     "@namesmt/utils": "^0.5.18",
     "@types/node": "^24.10.1",
     "@vitest/coverage-v8": "^4.0.8",
+    "arktype": "^2.1.26",
     "eslint": "^9.39.1",
     "lint-staged": "^16.2.6",
     "obuild": "^0.4.1",
