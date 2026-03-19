@@ -1,3 +1,5 @@
+<!-- eslint-disable markdown/no-multiple-h1 -->
+<!-- eslint-disable markdown/no-unused-definitions -->
 <div align="center">
 
 <h1>Starter TS</h1>
