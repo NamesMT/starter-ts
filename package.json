@@ -51,14 +51,14 @@
     "@antfu/eslint-config": "^7.7.3",
     "@namesmt/utils": "^0.5.18",
     "@types/node": "^24.12.0",
-    "@vitest/coverage-v8": "^4.1.0",
-    "eslint": "^10.0.3",
+    "@vitest/coverage-v8": "^4.1.1",
+    "eslint": "^10.1.0",
     "lint-staged": "^16.4.0",
     "obuild": "^0.4.32",
     "simple-git-hooks": "^2.13.1",
     "tsx": "^4.21.0",
-    "typescript": "^5.9.3",
-    "vitest": "^4.1.0"
+    "typescript": "^6.0.2",
+    "vitest": "^4.1.1"
   },
   "pnpm": {
     "overrides": {
