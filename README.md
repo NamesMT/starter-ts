@@ -26,6 +26,7 @@
   * [Usage](#usage)
     * [Install package](#install-package)
     * [Import and use](#import-and-use)
+  * [Releasing](#releasing)
   * [Roadmap](#roadmap)
   * [License](#license)
 
@@ -76,6 +77,20 @@ import { hello } from 'starter-ts'
 
 hello('world')
 ```
+
+## Releasing
+
+Releases use [changelogen](https://github.com/unjs/changelogen) locally and
+[npm Trusted Publishing](https://docs.npmjs.com/generating-provenance-statements)
+(via OIDC) in CI.
+
+1. Run `pnpm release` to bump the version, generate the changelog, commit and
+   push a `v*` tag.
+2. The tag push triggers [`.github/workflows/release.yml`](.github/workflows/release.yml),
+   which publishes to npm with `--provenance` using a short-lived OIDC token.
+
+One-time setup: on npmjs.com enable **Settings → Publishing access → Trusted
+Publishing** for `namesmt/starter-ts` and the `release.yml` workflow.
 
 ## Roadmap
 

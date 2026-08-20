@@ -1,0 +1,10 @@
+allowBuilds:
+  esbuild: true
+  simple-git-hooks: true
+  unrs-resolver: true
+
+shellEmulator: true
+trustPolicy: no-downgrade
+
+overrides:
+  is-core-module: npm:@nolyfill/is-core-module@^1.0.39
