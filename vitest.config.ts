@@ -6,6 +6,7 @@ export default defineConfig({
       exclude: [
         ...configDefaults.coverage.exclude!,
         'src/helpers/logger.ts',
+        'tsdown.config.ts',
       ],
     },
   },

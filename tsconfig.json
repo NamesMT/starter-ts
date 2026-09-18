@@ -24,6 +24,7 @@
   },
   "exclude": [
     "dist",
-    "node_modules"
+    "node_modules",
+    "tsdown.config.ts"
   ]
 }

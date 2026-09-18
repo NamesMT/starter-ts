@@ -49,7 +49,7 @@ This template assumes you are using Linux, or the included Dev Container.
 + 👌 TypeScript
 + 🧐 ESLint + stylistic formatting rules ([antfu](https://github.com/antfu/eslint-config))
 + 💯 Vitest
-+ 📦 [obuild](https://github.com/unjs/obuild)
++ 📦 [tsdown](https://github.com/rolldown/tsdown)
 + 📚 A few more goodies like:
   + [changelogen](https://github.com/unjs/changelogen) release script
   + [lint-staged](https://github.com/lint-staged/lint-staged) pre-commit hook
