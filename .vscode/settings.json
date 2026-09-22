@@ -48,6 +48,7 @@
     "postcss"
   ],
 
-  // Use Workspace TS Version
-  "js/ts.tsdk.path": "node_modules/typescript/lib"
+  // Use workspace version of typescript
+  "js/ts.tsdk.path": "node_modules/typescript/lib",
+  "js/ts.tsdk.promptToUseWorkspaceVersion": true
 }
