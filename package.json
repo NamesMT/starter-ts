@@ -2,7 +2,7 @@
   "name": "starter-ts",
   "type": "module",
   "version": "0.1.0",
-  "packageManager": "pnpm@11.22.0",
+  "packageManager": "pnpm@12.5.1",
   "author": "NamesMT <dangquoctrung123@gmail.com>",
   "license": "MIT",
   "funding": "https://github.com/sponsors/namesmt",
