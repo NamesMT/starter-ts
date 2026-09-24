@@ -18,6 +18,9 @@ if (version.length === 0) {
 const file = path.join(fileURLToPath(new URL('..', import.meta.url)), 'CHANGELOG.md')
 const lines = fs.readFileSync(file, 'utf8').split('\n')
 const heading = new RegExp(`^##\\s+v?${version.replace(/\./g, '\\.')}\\s*$`)
+// module scope: some repos enable e18e/prefer-static-regex, which flags a regex
+// literal that would be re-created on every callback invocation
+const nextHeading = /^##\s/
 const start = lines.findIndex(line => heading.test(line))
 
 if (start === -1) {
@@ -25,7 +28,7 @@ if (start === -1) {
   process.exit(1)
 }
 
-let end = lines.findIndex((line, index) => index > start && /^##\s/.test(line))
+let end = lines.findIndex((line, index) => index > start && nextHeading.test(line))
 if (end === -1)
   end = lines.length
 

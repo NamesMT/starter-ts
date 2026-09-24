@@ -70,7 +70,7 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Lint, types and tests
-        run: pnpm run quickcheck && pnpm exec vitest run
+        run: pnpm run check
 
       - name: Build
         run: pnpm run build
@@ -81,7 +81,7 @@ jobs:
           # failed commit — so set one, then assert the release actually happened
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          npx changelogen@latest --release -r "$VERSION" --no-github --clean --hideAuthorEmail
+          npx -y changelogen@latest --release -r "$VERSION" --no-github --clean --hideAuthorEmail
           git tag --points-at HEAD | grep -qx "$TAG" || { echo "::error::changelogen did not create $TAG on a release commit"; exit 1; }
           test "$(node -p "require('./package.json').version")" = "$VERSION" || { echo "::error::package.json was not bumped to $VERSION"; exit 1; }
 
@@ -94,6 +94,8 @@ jobs:
             echo "push rejected (attempt $attempt) — rebasing on origin/main"
             git fetch --quiet origin main
             git rebase --autostash --quiet origin/main
+            # the rebase rewrote the release commit, so the tag has to follow it
+            git tag -f -a "$TAG" -m "$TAG"
           done
           echo "could not push the release commit" >&2
           exit 1
@@ -103,9 +105,14 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          # a process substitution would swallow a failure here, and empty
+          # notes still create a release — so check the body before using it
+          NOTES="$(mktemp)"
+          node scripts/release-notes.mjs "$VERSION" > "$NOTES"
+          test -s "$NOTES" || { echo "::error::the release notes for $VERSION came out empty"; exit 1; }
           gh release create "$TAG" \
             --title "$TAG" \
-            --notes-file <(node scripts/release-notes.mjs "$VERSION")
+            --notes-file "$NOTES"
 
       - name: Publish to npm
         if: ${{ !inputs.dry-run }}
