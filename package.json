@@ -38,7 +38,8 @@
     "check": "pnpm run lint && pnpm run test:types && vitest run --coverage",
     "build": "tsdown",
     "prerelease": "pnpm run check",
-    "release": "pnpm dlx changelogen@latest --release --push",
+    "release:check": "node scripts/check-release-version.mjs",
+    "release:preview": "pnpm dlx changelogen@latest",
     "prepare": "simple-git-hooks",
     "prepublishOnly": "pnpm run build"
   },

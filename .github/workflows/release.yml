@@ -1,41 +1,131 @@
-name: Release (npm Trusted Publishing)
+name: Release
+
+# Manual, version-first release. Dispatch with the version to ship:
+#   * verifies the version, then lints, type-checks and tests
+#   * changelogen derives the changelog from conventional commits, bumps package.json,
+#     commits and tags `v<version>`
+#   * the commit and tag are pushed, and a GitHub release is created from the changelog section
+#   * the package is published to npm with trusted publishing (OIDC — no token)
+#
+# One-time setup before the first run:
+#   * publish the package once by hand: npm only lets you configure a trusted publisher for a
+#     package that already exists
+#   * on npmjs.com → the package → Settings → Trusted Publisher, add this repository with the
+#     workflow filename `release.yml`
+#   * a public repository gives `npm publish --provenance` an attestation that links the tarball
+#     to this workflow run (drop the flag if the repository is ever made private again)
 
 on:
-  push:
-    tags:
-      - v*
+  workflow_dispatch:
+    inputs:
+      version:
+        description: Version to release, without a leading v (e.g. 0.2.0)
+        required: true
+        type: string
+      dry-run:
+        description: Stop before pushing, releasing and publishing
+        required: false
+        type: boolean
+        default: false
 
 permissions:
-  contents: read
-  id-token: write # required for npm provenance / OIDC
+  contents: write
+  id-token: write
 
 concurrency:
   group: release
   cancel-in-progress: false
 
 jobs:
-  publish:
-    name: Publish to npm
+  release:
     runs-on: ubuntu-latest
+    env:
+      VERSION: ${{ inputs.version }}
+      TAG: v${{ inputs.version }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
+        with:
+          # changelogen needs the tags and the history to build the changelog
+          fetch-depth: 0
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v6
 
       - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
           node-version: 24
           registry-url: https://registry.npmjs.org
-          cache: pnpm
+          # never cache in a release build
+          package-manager-cache: false
 
-      - name: Install dependencies
+      - name: Use a recent npm (trusted publishing needs >= 11.5.1)
+        run: npm install -g npm@latest
+
+      - name: Check the requested version
+        run: node scripts/check-release-version.mjs "$VERSION"
+
+      - name: Install
         run: pnpm install --frozen-lockfile
 
-      # Publishes using OIDC (no long-lived NPM_TOKEN needed).
-      # Requires the package to be configured for Trusted Publishing
-      # on npmjs.com (Settings > Publishing access).
+      - name: Lint, types and tests
+        run: pnpm run quickcheck && pnpm exec vitest run
+
+      - name: Build
+        run: pnpm run build
+
+      - name: Changelog, version bump, commit and tag
+        run: |
+          # the runner has no git identity, and changelogen will happily exit 0 after a
+          # failed commit — so set one, then assert the release actually happened
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          npx changelogen@latest --release -r "$VERSION" --no-github --clean --hideAuthorEmail
+          git tag --points-at HEAD | grep -qx "$TAG" || { echo "::error::changelogen did not create $TAG on a release commit"; exit 1; }
+          test "$(node -p "require('./package.json').version")" = "$VERSION" || { echo "::error::package.json was not bumped to $VERSION"; exit 1; }
+
+      - name: Push the commit and the tag
+        if: ${{ !inputs.dry-run }}
+        run: |
+          # someone may have pushed while this ran: replay the release commit on top, then push
+          for attempt in 1 2 3; do
+            git push --follow-tags && exit 0
+            echo "push rejected (attempt $attempt) — rebasing on origin/main"
+            git fetch --quiet origin main
+            git rebase --autostash --quiet origin/main
+          done
+          echo "could not push the release commit" >&2
+          exit 1
+
+      - name: Create the GitHub release
+        if: ${{ !inputs.dry-run }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release create "$TAG" \
+            --title "$TAG" \
+            --notes-file <(node scripts/release-notes.mjs "$VERSION")
+
       - name: Publish to npm
-        run: pnpm publish --provenance --no-git-checks
+        if: ${{ !inputs.dry-run }}
+        run: |
+          npm publish --access public --provenance
+          # a trusted publisher can be configured to stage instead of publishing live, in which
+          # case npm accepts the upload and holds it for approval. Verify, and say which it was.
+          for attempt in 1 2 3 4 5 6; do
+            if npm view "$(node -p "require('./package.json').name")@$VERSION" version >/dev/null 2>&1; then
+              echo "live on npm: $(node -p "require('./package.json').name")@$VERSION"
+              exit 0
+            fi
+            sleep 10
+          done
+          echo "::warning::$VERSION is not visible on the registry yet — check npmjs.com for a staged publish waiting for approval"
+
+      - name: Summary
+        run: |
+          {
+            echo "### $TAG$( [ "${{ inputs.dry-run }}" = "true" ] && echo ' (dry run)')"
+            echo
+            echo "Package: \`$(node -p "require('./package.json').name")@$VERSION\`"
+          } >> "$GITHUB_STEP_SUMMARY"
