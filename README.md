@@ -51,7 +51,8 @@ This template assumes you are using Linux, or the included Dev Container.
 + 💯 Vitest
 + 📦 [tsdown](https://github.com/rolldown/tsdown)
 + 📚 A few more goodies like:
-  + [changelogen](https://github.com/unjs/changelogen) release script
+  + [changelogen](https://github.com/unjs/changelogen) release pipeline, driven by GitHub Actions
+    with [npm trusted publishing](https://docs.npmjs.com/generating-provenance-statements)
   + [lint-staged](https://github.com/lint-staged/lint-staged) pre-commit hook
 
 ## Usage
@@ -80,17 +81,24 @@ hello('world')
 
 ## Releasing
 
-Releases use [changelogen](https://github.com/unjs/changelogen) locally and
-[npm Trusted Publishing](https://docs.npmjs.com/generating-provenance-statements)
-(via OIDC) in CI.
+Releases are version-first and dispatched by hand: one workflow run does the whole release,
+so a `git push` on its own never publishes anything.
 
-1. Run `pnpm release` to bump the version, generate the changelog, commit and
-   push a `v*` tag.
-2. The tag push triggers [`.github/workflows/release.yml`](.github/workflows/release.yml),
-   which publishes to npm with `--provenance` using a short-lived OIDC token.
+1. Go to **Actions → Release → Run workflow** and give it the version to ship, e.g. `0.2.0`.
+2. [`.github/workflows/release.yml`](.github/workflows/release.yml) verifies the version,
+   lints/type-checks/tests, then lets [changelogen](https://github.com/unjs/changelogen) write
+   the changelog, bump `package.json`, commit and tag `v<version>`. It pushes that commit and
+   tag, creates the GitHub release, and publishes to npm with a short-lived
+   [OIDC](https://docs.npmjs.com/generating-provenance-statements) token and `--provenance`.
 
-One-time setup: on npmjs.com enable **Settings → Publishing access → Trusted
-Publishing** for `namesmt/starter-ts` and the `release.yml` workflow.
+Tick **dry-run** to do everything up to the commit and stop there — nothing is written back.
+
+Locally, `pnpm run release:check <version>` validates a version against `package.json`, and
+`pnpm run release:preview` prints the changelog the next release would get.
+
+One-time setup: publish the package once by hand (npm only offers a trusted publisher for a
+package that already exists), then on npmjs.com enable **Settings → Publishing access → Trusted
+Publishing** for `namesmt/starter-ts` with the workflow filename `release.yml`.
 
 ## Roadmap
 
