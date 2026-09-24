@@ -21,12 +21,12 @@ jobs:
       fail-fast: false
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 0
 
       - name: Set node ${{ matrix.node }}
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
           node-version: ${{ matrix.node }}
 
@@ -37,7 +37,7 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Test (w/ coverage report)
-        run: pnpm test --coverage
+        run: pnpm exec vitest run --coverage
 
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v5
