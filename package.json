@@ -6,12 +6,12 @@
   "author": "NamesMT <dangquoctrung123@gmail.com>",
   "license": "MIT",
   "funding": "https://github.com/sponsors/namesmt",
-  "homepage": "https://github.com/namesmt/starter-ts#readme",
+  "homepage": "https://github.com/NamesMT/starter-ts#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/namesmt/starter-ts.git"
+    "url": "git+https://github.com/NamesMT/starter-ts.git"
   },
-  "bugs": "https://github.com/namesmt/starter-ts/issues",
+  "bugs": "https://github.com/NamesMT/starter-ts/issues",
   "sideEffects": false,
   "imports": {
     "#src/*": "./src/*"

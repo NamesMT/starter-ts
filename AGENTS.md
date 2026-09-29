@@ -51,3 +51,4 @@ One-time trusted-publisher setup is in the README.
 - `dist/` is built, never committed — it is gitignored, but a stale copy may exist locally.
 - The release workflow's `changelogen --clean` aborts on a dirty `git status --porcelain`; ignored files such as `dist/` do not count.
 - The README's `hello('world')` sample is a placeholder, not a real API.
+- The npm name `starter-ts` is owned by another user (`qq15725`), so this repo cannot publish to npm as-is — rename the package (and the trusted publisher) before releasing.
