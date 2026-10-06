@@ -5,6 +5,20 @@
 [Vitest](https://vitest.dev) for tests. Everything is meant to be copied and renamed — treat
 `starter-ts`, `namesmt` and `shouldBe200` as placeholders.
 
+## Docs
+
+Three tiers, so a reader loads only what the task needs:
+
+1. **`AGENTS.md`** (this file) — orientation and the rules that prevent defects. Read every session.
+2. **`.agentDocs/`** — depth that would bloat this file: module rationale, traps with their causes,
+   compatibility rules. Read on demand.
+3. **`README.md` / `docs/`** — for a person using the package, not for an agent.
+
+**There is no `.agentDocs/` here yet and none is needed at this size.** Create one when a section
+above outgrows a screen or two: move the *reasoning* out and keep the *rule* here with a pointer to
+it — nobody reads a file they do not open. Each document opens with a one-line scope, and this file
+links it.
+
 ## Commands
 
 ```sh
@@ -39,20 +53,6 @@ pnpm run release:preview   # print the changelog the next release would get
 - `src/helpers/logger.ts` is excluded from coverage in `vitest.config.ts` — don't add coverage
   tests for it (`test/helpers/logger.test.ts` is already a smoke test).
 
-## Docs
-
-Three tiers, so a reader loads only what the task needs:
-
-1. **`AGENTS.md`** (this file) — orientation and the rules that prevent defects. Read every session.
-2. **`.agentDocs/`** — depth that would bloat this file: module rationale, traps with their causes,
-   compatibility rules. Read on demand.
-3. **`README.md` / `docs/`** — for a person using the package, not for an agent.
-
-**There is no `.agentDocs/` here yet and none is needed at this size.** Create one when a section
-above outgrows a screen or two: move the *reasoning* out and keep the *rule* here with a pointer to
-it — nobody reads a file they do not open. Each document opens with a one-line scope, and this file
-links it.
-
 ## How to work here
 
 - Check callers first; flag unclear impact instead of guessing.
@@ -61,10 +61,10 @@ links it.
 - Report risk, not just the change: correctness, security, ops, integration.
 - **Fix the class, not the instance** — copied helper, duplicated rule, bypassed second path → one
   implementation, one formatter, one guard. That is the work, not a follow-up.
-- Verify before claiming; a green test proves nothing on its own.
+- **Verify before claiming, and say what you checked.** A green test proves only what it asserts — **break the thing it guards and watch it fail.** If it still passes, either the test is decoration or a different guard is running; find out which. Where a stub cannot answer the question, drive the real thing. Mark anything unverified as unverified.
 - No recall of this project? Read this file + `git log` first.
 
-## Conciseness (applies everywhere)
+## Conciseness
 
 Prune verbose, keep correctness — code, comments, docs. Code: comments only for non-obvious intent. Docs:
 one idea per sentence; cut what would not change what a reader does. Keep the rule, not the history `git log`
