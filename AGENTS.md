@@ -39,6 +39,28 @@ pnpm run release:preview   # print the changelog the next release would get
 - `src/helpers/logger.ts` is excluded from coverage in `vitest.config.ts` — don't add coverage
   tests for it (`test/helpers/logger.test.ts` is already a smoke test).
 
+## How to work here
+
+- Check callers first; flag unclear impact instead of guessing.
+- Never overwrite a large section you have not understood.
+- Surface what looks needed; do not invent requirements.
+- Report risk, not just the change: correctness, security, ops, integration.
+- **Fix the class, not the instance** — copied helper, duplicated rule, bypassed second path → one
+  implementation, one formatter, one guard. That is the work, not a follow-up.
+- Verify before claiming; a green test proves nothing on its own.
+- No recall of this project? Read this file + `git log` first.
+
+## Conciseness (applies everywhere)
+
+Prune verbose, keep correctness — code, comments, docs. Code: comments only for non-obvious intent. Docs:
+one idea per sentence; cut what would not change what a reader does. Keep the rule, not the history `git log`
+holds. Never drop a caveat to save a line.
+
+## User-facing docs
+
+`README.md` is the only user-facing doc (no `docs/` here): concise first read, depth in `<details>`, visuals
+for skimmers — and it ships with the change, in the same commit.
+
 ## Releasing
 
 Manual and version-first: dispatch **Actions → Release → Run workflow** with the version.
