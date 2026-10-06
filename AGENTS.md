@@ -58,8 +58,8 @@ holds. Never drop a caveat to save a line.
 
 ## User-facing docs
 
-`README.md` is the only user-facing doc (no `docs/` here): concise first read, depth in `<details>`, visuals
-for skimmers — and it ships with the change, in the same commit.
+`README.md` is the only user-facing doc (no `docs/` here): concise first read, visuals for skimmers —
+and it ships with the change, in the same commit.
 
 ## Releasing
 
